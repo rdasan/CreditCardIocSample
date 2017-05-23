@@ -3,7 +3,7 @@ using CreditCardIocSample.Model;
 
 namespace CreditCardIocSample.Client
 {
-	public class CreditCardClient
+	public class CreditCardClient : ICreditCardClient
 	{
 		public CreditCardClientResult SendRequest(CreditCard creditCard)
 		{

@@ -5,6 +5,7 @@ namespace CreditCardIocSample
 {
 	class Program
 	{
+
 		static void Main(string[] args)
 		{
 			var creditCard = new CreditCard
@@ -21,8 +22,7 @@ namespace CreditCardIocSample
 			var option = Console.ReadLine();
 			if (option == "1")
 			{
-				var visaCard = new VisaCard();
-				var customerResult = visaCard.ChargeCard(creditCard);
+			// var customerResult = _visaCard.ChargeCard(creditCard);
 			}
 			if (option == "2")
 			{

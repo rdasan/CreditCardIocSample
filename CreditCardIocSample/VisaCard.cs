@@ -1,15 +1,23 @@
-﻿using CreditCardIocSample.Client;
+﻿using System;
+using CreditCardIocSample.Client;
 using CreditCardIocSample.Model;
 
 namespace CreditCardIocSample
 {
 	public class VisaCard
 	{
-		private readonly CreditCardClient _creditCardClient;
+		private ICreditCardClient _creditCardClient;
 
-		public VisaCard()
+		public VisaCard(ICreditCardClient creditCardClient)
 		{
-			_creditCardClient = new CreditCardClient();
+			if (creditCardClient != null)
+			{
+				_creditCardClient = creditCardClient;
+			}
+			else
+			{
+				throw new ArgumentNullException(nameof(creditCardClient));
+			}
 		}
 
 		public CustomerCardResult ChargeCard(CreditCard creditCard)

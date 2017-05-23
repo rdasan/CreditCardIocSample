@@ -3,13 +3,14 @@ using CreditCardIocSample.Model;
 
 namespace CreditCardIocSample
 {
-	public class MasterCard
+	public class MasterCard : IMasterCard
 	{
-		private readonly CreditCardClient _creditCardClient;
+		private readonly ICreditCardClient creditCardClient;
+		private ICreditCardClient _creditCardClient;
 
-		public MasterCard()
+		public MasterCard(ICreditCardClient creditCardClient)
 		{
-			_creditCardClient = new CreditCardClient();
+			_creditCardClient = creditCardClient;
 		}
 
 		public CustomerCardResult ChargeCard(CreditCard creditCard)
