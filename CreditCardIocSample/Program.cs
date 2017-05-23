@@ -7,12 +7,17 @@ namespace CreditCardIocSample
 	class Program
 	{
 		private static ICreditCardClient ccClient;
+		private static MasterCard masterCard;
+		private static VisaCard visaCard;
+
+		private Program()
+		{
+			masterCard = new MasterCard();
+			visaCard = new VisaCard();
+		}
 
 		static void Main(string[] args)
 		{
-			MasterCard masterCard = new MasterCard();
-			VisaCard visaCard = new VisaCard(); 
-
 			var creditCard = new CreditCard
 			{
 				CardNumber = "4111222233334444",
