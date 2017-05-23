@@ -18,6 +18,9 @@ namespace CreditCardClientTests.cs
 		[TestMethod]
 		public void NullCreditCardShouldFail()
 		{
+			// arrange
+			var creditCardClientMock = _kernel.GetMock<ICreditCardClient>();
+			
 		}
 	}
 }
