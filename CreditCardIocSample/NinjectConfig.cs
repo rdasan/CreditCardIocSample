@@ -1,5 +1,4 @@
-﻿using CreditCardIocSample;
-using CreditCardIocSample.Client;
+﻿using CreditCardIocSample.Client;
 using Ninject.Modules;
 
 public class NinjectConfig : NinjectModule
