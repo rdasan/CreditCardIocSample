@@ -1,15 +1,19 @@
-﻿using CreditCardIocSample.Client;
+﻿using System.Reflection;
+using CreditCardIocSample.Client;
 using CreditCardIocSample.Model;
+using Ninject;
 
 namespace CreditCardIocSample
 {
 	public class VisaCard
 	{
-		private readonly CreditCardClient _creditCardClient;
+		private readonly ICreditCardClient _creditCardClient;
 
 		public VisaCard()
 		{
-			_creditCardClient = new CreditCardClient();
+			var kernel = new StandardKernel();
+			kernel.Load(Assembly.GetExecutingAssembly());
+			_creditCardClient = kernel.Get<ICreditCardClient>();
 		}
 
 		public CustomerCardResult ChargeCard(CreditCard creditCard)

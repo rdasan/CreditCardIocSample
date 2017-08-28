@@ -1,10 +1,21 @@
 ﻿using System;
+using CreditCardIocSample.Client;
 using CreditCardIocSample.Model;
 
 namespace CreditCardIocSample
 {
 	class Program
 	{
+		private static ICreditCardClient ccClient;
+		private static MasterCard masterCard;
+		private static VisaCard visaCard;
+
+		private Program()
+		{
+			masterCard = new MasterCard();
+			visaCard = new VisaCard();
+		}
+
 		static void Main(string[] args)
 		{
 			var creditCard = new CreditCard
@@ -21,13 +32,13 @@ namespace CreditCardIocSample
 			var option = Console.ReadLine();
 			if (option == "1")
 			{
-				var visaCard = new VisaCard();
 				var customerResult = visaCard.ChargeCard(creditCard);
+				Console.WriteLine(customerResult.ToString());
 			}
 			if (option == "2")
 			{
-				var masterCard = new MasterCard();
 				var customerResult = masterCard.ChargeCard(creditCard);
+				Console.WriteLine(customerResult.ToString());
 			}
 			else
 			{
